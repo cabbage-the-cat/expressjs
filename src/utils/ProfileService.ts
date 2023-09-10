@@ -14,7 +14,7 @@ constructor(gptRepo: ChatGPTRepository) {
    */
   async getRandomProfile(){
 
-    const profile = await this.gptRepo.callChatGPT('In JSON format create a beautiful name and a dating profile blurb that is unique to the name generated limited to 75 words. full name and blurb must be different every time. properties must be name and blurb.')
+    const profile = await this.gptRepo.callChatGPT('In JSON format create a beautiful name and a dating profile blurb that is unique to the name generated limited to 75 words. full name and blurb must be different every time. properties must be name and blurb. For the profile reference a variety of tinder profiles. Return 1 json.')
   const yy =   profile?.replaceAll('\n','').split("```")
     const split_1 = yy[1]
     const final = split_1?.replaceAll('json','')
