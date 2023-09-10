@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { ProfileService } from './utils/ProfileService';
+import { ChatGPTRepository } from './utils/GPTClient';
 
 export const app = express();
 
@@ -9,7 +10,9 @@ app.use(cors({ origin: true }));
 app.use(express.json());
 app.use(express.raw({ type: 'application/vnd.custom-type' }));
 app.use(express.text({ type: 'text/html' }));
-const profileService = new ProfileService()
+const gptRepo = new ChatGPTRepository(process.env.GPT_KEY)
+
+const profileService = new ProfileService(gptRepo)
 
 // Healthcheck endpoint
 app.get('/', (req, res) => {
@@ -26,7 +29,16 @@ api.get('/profile', async (req, res) => {
   if(req.headers.site!=='drama-freaks'){
     res.status(400).send({})
   }else {
-    res.status(200).send(profileService.getRandomProfile());
+
+    try {
+      const profile =   await profileService.getRandomProfile()
+      res.status(200).send(profile);
+    }catch (e) {
+      console.log(e)
+      res.status(400).send({})
+
+    }
+
   }
 });
 
