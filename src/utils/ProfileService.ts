@@ -10,6 +10,144 @@ interface TAROT  {
 }
 
 
+const TorotCardConfig: Record<string, any> = {
+  DEATH: {
+    url:'https://randomtarotcard.com/Death.jpg',
+    name:'Death',
+    context:'Endings, Failure, Letting go of attachments, Mortality, Profound change, Severe illness',
+    upside_down_context: 'Delayed endings, Depression, Living unaware, Long terminal illness, Resistance to change'
+  },
+  WHEEL_OF_FORTUNE:{
+    url:'https://randomtarotcard.com/WheelofFortune.jpg',
+    name: 'Wheel of Fortune',
+    context:'Chance, Changes, Destiny, Luck, Opportunity, Winning',
+    upside_down_context: 'Bad luck, Disappointment, Misfortune, Mishap, Unforeseen'
+  },
+  THE_EMPRESS:{
+    url:'https://randomtarotcard.com/TheEmpress.jpg',
+    name: 'The Empress',
+    context:'A new opportunity, Abundance, Maternal care, Nurturing, Pregnancy, Stability',
+    upside_down_context: 'Domestic problems, Financial issues, Stagnation, Unwanted pregnancy'
+  },
+  THE_MAGICIAN:{
+    url:'https://randomtarotcard.com/TheMagician.jpg',
+    name: 'The Magician',
+    context:'Determined, Dexterity, Resourceful, Skilled, Strong powerful man',
+    upside_down_context: 'Communication blocks, Confusion, Deceit, Ill intentions, Lack of energy'
+  },
+  THE_MOON:{
+    url:'https://randomtarotcard.com/TheMoon.jpg',
+    name: 'The Moon',
+    context:'Deception, Difficult period, Fear, Hidden things, Insecurity, Mental confusion',
+    upside_down_context: 'Insomnia, Mysteries unveiled, Release of fear, Unhappiness, Unusual'
+  },
+  THE_TOWER:{
+    url:'https://randomtarotcard.com/TheTower.jpg',
+    name: 'The Tower',
+    context:'Accident or damage, Catastrophe, Destruction, Renovation, Unexpected change',
+    upside_down_context: ' Illness, Losses, Obstacles, Volatile situation'
+  },
+  THE_STAR:{
+    url:'https://randomtarotcard.com/TheStar.jpg',
+    name: 'The Star',
+    context:'Astronomy, Good health, Hope, Inspiration, Opportunities, Spirituality',
+    upside_down_context: 'Despair, Disappointments, Illness, Missed opportunities'
+  },
+  THE_FOOL:{
+    url:'https://randomtarotcard.com/TheFool.jpg',
+    name: 'The Fool',
+    context:'Beginnings, Innocence, Leap of faith, Originality, Spontaneity',
+    upside_down_context: 'Chaos, Folly, Lack of direction, Naivety, Poor judgement, Stupidity'
+  },
+  THE_HIGH_PRIESTESS:{
+    url:'https://randomtarotcard.com/TheHighPriestess.jpg',
+    name: 'The High Priestess',
+    context:' Hidden talents, Intuition, Mystery, Spiritual insight, Things yet to be revealed',
+    upside_down_context: 'Information withheld, Lack of personal harmony, Secrets'
+  },
+  THE_EMPEROR:{
+    url:'https://randomtarotcard.com/TheEmperor.jpg',
+    name: 'The Emperor',
+    context:' Authority, Father figure, Law and order, Leadership, Power, Promotion',
+    upside_down_context: 'Control freak, Immaturity, Lack of discipline, Loss of authority, Manipulative friends'
+  },
+  THE_HIEROPHANT:{
+    url:'https://randomtarotcard.com/TheHierophant.jpg',
+    name: 'The Hierophant',
+    context:'Education, Learning, Marriage, Religion, Seeking counsel or advice, Spiritual guidance, Tradition',
+    upside_down_context: 'Abuse of position, Breakdown, Poor counsel, Rejection of family values'
+  },
+  THE_LOVERS:{
+    url:'https://randomtarotcard.com/TheLovers.jpg',
+    name: 'The Lovers',
+    context:'Being at a crossroads, Choices, Commitment, Falling in love, Partnerships',
+    upside_down_context: 'Disharmony, Imbalance, Misalignment of values, Self-love'
+  },
+  THE_CHARIOT:{
+    url:'https://randomtarotcard.com/TheChariot.jpg',
+    name: 'The Chariot',
+    context:'A journey, Ambition, Confidence, Drive, Overcoming obstacles, Will power',
+    upside_down_context: 'Lack of direction, Scattered energy, Self doubt'
+  },
+  STRENGTH:{
+    url:'https://randomtarotcard.com/Strength.jpg',
+    name: 'Strength',
+    context:'Introspection, Meditation, Self-reflection, Solitude, Soul-searching, Withdrawn from society',
+    upside_down_context: 'Exile, Loneliness, Misfit, Sadness, Withdrawing from loved ones'
+  },
+  THE_HERMIT:{
+    url:'https://randomtarotcard.com/TheHermit.jpg',
+    name: 'The Hermit',
+    context:'Introspection, Meditation, Self-reflection, Solitude, Soul-searching, Withdrawn from society',
+    upside_down_context: 'Exile, Loneliness, Misfit, Sadness, Withdrawing from loved ones'
+  },
+  JUSTICE:{
+    url:'https://randomtarotcard.com/Justice.jpg',
+    name: 'Justice',
+    context:'Balance and equilibrium, Cause and effect, Fairness, Justice, Responsibilty',
+    upside_down_context: 'Dishonesty, Imbalance, Lack of accountability, Legal flaws, Unfair treatment'
+  },
+  THE_WORLD:{
+    url:'https://randomtarotcard.com/TheWorld.jpg',
+    name: 'The World',
+    context:'Achievement, Fulfillment, Possibilities, Successful conclusions',
+    upside_down_context: 'Delayed success, Failed plans, Lack of completion, Stagnation'
+  },
+  THE_HANGED_MAN:{
+    url:'https://randomtarotcard.com/TheHangedMan.jpg',
+    name: 'The Hanged Man',
+    context:'Breaking old patterns, Circumspection, Letting go, Metamorphosis, Suspension',
+    upside_down_context: 'Egotism, Inability to change, Missing an opportunity'
+  },
+  THE_SUN:{
+    url:'https://randomtarotcard.com/TheSun.jpg',
+    name: 'The Sun',
+    context:'Enlightment, Joy, Marriage, Material happiness, Success, Vitality',
+    upside_down_context: 'False impressions, Lack of clarity, Low Vitality, Sadness'
+  },
+  JUDGEMENT:{
+    url:'https://randomtarotcard.com/Judgement.jpg',
+    name: 'Judgement',
+    context:'Awakening, Decision making, Redemption, Reincarnation, Renewal, Transition',
+    upside_down_context: 'Poor logic, Poor or hasty judgement, Self-doubt, Stagnation'
+  },
+  THE_DEVIL:{
+    url:'https://randomtarotcard.com/TheDevil.jpg',
+    name: 'The Devil',
+    context:'Bondage, Enslavement, Fear, Feeling trapped, Materialism, Temptation, Unhealthy relationships',
+    upside_down_context: 'Breaking from addictions, Divorce, Freedom from restraints'
+
+  },
+  TEMPERANCE:{
+    url:'https://randomtarotcard.com/Temperance.jpg',
+    name: 'Temperance',
+    context:'Alchemy, Balance, Connecting with your guides, Harmony, Looking for divine intervention, Moderation',
+    upside_down_context: 'Disharmony, Imbalance, Lack of patience, Onset of illness'
+  }
+}
+
+
+
 export class ProfileService{
   private gptRepo: ChatGPTRepository;
 constructor(gptRepo: ChatGPTRepository) {
@@ -17,8 +155,10 @@ constructor(gptRepo: ChatGPTRepository) {
 }
 
 async getTaroCarReading(key: string, isReversed: boolean){
+
+  const name = TorotCardConfig[key].name
   const reverseP = (isReversed)?'is reverse': ''
-  const prompt = `You are a tarot card reader. In json format can you give me the reading for ${key} ${reverseP} in 2 sentences. Properties are interpretation ands adjectives . New interpretation every time please.  Include a list of 4 adjectives at the end. `
+  const prompt = `You are a tarot card reader. In json format can you give me the reading for ${name} ${reverseP} in 2 sentences. Properties are interpretation ands adjectives . New interpretation every time please.  Include a list of 4 adjectives at the end. `
   const profile = await this.gptRepo.callChatGPT(prompt)
   const yy =   profile?.replaceAll('\n','').split("```")
   const split_1 = yy[1]
