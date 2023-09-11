@@ -38,11 +38,8 @@ async getTaroCarReading(key: string, isReversed: boolean){
    *
    */
   async getRandomProfile(){
-const prompt = `In JSON format: ${
-  this.getNamePrompt()
-}. Also a dating profile bio Max 50 words.JSON properties must be name and blurb. ${this.getBioPrompt()}. written in first person.`
 
-    const profile = await this.gptRepo.callChatGPT(prompt)
+    const profile = await this.gptRepo.callChatGPT('In JSON format create a beautiful name and a dating profile blurb that is unique to the name generated limited to 50 words. full name and blurb must be different every time. properties must be name and blurb. Include emote if appropriate. Tone from 25 year old to 35 that is single and desperate.')
   const yy =   profile?.replaceAll('\n','').split("```")
     const split_1 = yy[1]
     const final = split_1?.replaceAll('json','')
