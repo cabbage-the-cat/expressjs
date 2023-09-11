@@ -4,11 +4,36 @@ interface Profile  {
   blurb: string
 }
 
+interface TAROT  {
+  interpretation: string
+  adjectives: string[]
+}
+
+
 export class ProfileService{
   private gptRepo: ChatGPTRepository;
 constructor(gptRepo: ChatGPTRepository) {
   this.gptRepo = gptRepo
 }
+
+async getTaroCarReading(key: string, isReversed: boolean){
+  const reverseP = (isReversed)?'is reverse': ''
+  const prompt = `You are a tarot card reader. In json format can you give me the reading for ${key} ${reverseP} in 2 sentences. Properties are interpretation ands adjectives . New interpretation every time please.  Include a list of 4 adjectives at the end. `
+  const profile = await this.gptRepo.callChatGPT(prompt)
+  const yy =   profile?.replaceAll('\n','').split("```")
+  const split_1 = yy[1]
+  const final = split_1?.replaceAll('json','')
+  const final_2 = final?.replaceAll(',}','}')
+
+  const parseString: string = final_2 as string || yy[0] as string
+  const parsedData = JSON.parse(parseString) as TAROT
+  return {
+    adjectives: parsedData.adjectives,
+    interpretation: parsedData.interpretation,
+  }
+
+}
+
   /**
    *
    */
@@ -22,10 +47,6 @@ const prompt = `In JSON format: ${
     const split_1 = yy[1]
     const final = split_1?.replaceAll('json','')
     const final_2 = final?.replaceAll(',}','}')
-    console.log({
-      yy,
-      final_2
-    })
 
     const parseString: string = final_2 as string || yy[0] as string
     const parsedData = JSON.parse(parseString) as Profile
