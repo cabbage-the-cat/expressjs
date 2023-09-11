@@ -158,7 +158,7 @@ async getTaroCarReading(key: string, isReversed: boolean){
 
   const name = TorotCardConfig[key].name
   const reverseP = (isReversed)?'is reverse': ''
-  const prompt = `You are a tarot card reader. In json format can you give me the reading for ${name} ${reverseP} in 2 sentences. Properties are interpretation ands adjectives . New interpretation every time please.  Include a list of 4 adjectives at the end. `
+  const prompt = `You are a tarot card reader. In json format can you give me the reading for ${name} ${reverseP} in 2 sentences. Properties are interpretation and adjectives . New interpretation every time please.  Include a list of 4 adjectives at the end. `
   const profile = await this.gptRepo.callChatGPT(prompt)
   const yy =   profile?.replaceAll('\n','').split("```")
   const split_1 = yy[1]
