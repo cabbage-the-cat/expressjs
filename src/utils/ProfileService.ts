@@ -179,7 +179,7 @@ async getTaroCarReading(key: string, isReversed: boolean){
    */
   async getRandomProfile(){
 
-    const profile = await this.gptRepo.callChatGPT('In JSON format create a beautiful name and a dating profile blurb that is unique to the name generated limited to 50 words. full name and blurb must be different every time. properties must be name and blurb. Include emote if appropriate. Tone from 25 year old to 35 that is single and desperate.')
+    const profile = await this.gptRepo.callChatGPT('In JSON format create a full name and a dating profile blurb limited to 50 words. Properties of json must be name and blurb. Include emote if appropriate. Pick a random tone from a wide array of cultures, age,income,genetics,sex drive, and gender.')
   const yy =   profile?.replaceAll('\n','').split("```")
     const split_1 = yy[1]
     const final = split_1?.replaceAll('json','')
