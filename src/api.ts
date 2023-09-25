@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { ProfileService } from './utils/ProfileService';
 import { ChatGPTRepository } from './utils/GPTClient';
+import { EtherService } from './ethereum/EtherService';
 
 export const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.text({ type: 'text/html' }));
 const gptRepo = new ChatGPTRepository(process.env.GPT_KEY)
 
 const profileService = new ProfileService(gptRepo)
+const ethereumService = new EtherService()
 
 // Healthcheck endpoint
 app.get('/', (req, res) => {
@@ -62,6 +64,23 @@ api.get('/profile', async (req, res) => {
 
   }
 });
+
+api.get('/ethereum/create', async (req, res) => {
+  if(req.headers.site!=='drama-freaks'){
+    res.status(400).send({})
+  }else {
+
+    try {
+      const newWallet =   await ethereumService.createWalletAndKey()
+      res.status(200).send(newWallet);
+    }catch (e) {
+      console.log(e)
+      res.status(400).send({})
+
+    }
+  }
+})
+
 
 
 // Version the api
